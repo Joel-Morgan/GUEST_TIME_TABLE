@@ -10,6 +10,7 @@ python3 quickstart.py
 IMPORTANT: DEPENDENCIES:
 make sure you have all the dependencies set up, SPECIFICALLY in python3!!
 they are:
+github
 __future__
 datetime
 json
@@ -39,4 +40,4 @@ CREATE EVENT: THANK CHRIS
 most importantly hug chris for figuring out our encoding issues
 
 THAT'S IT don't fuck up :)
-xx- Alex
+xx- Alex for the Google Calendars API end and Rikaz for the GitHub API end

@@ -6,10 +6,12 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+import gitHubAccess
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-
-event = {
+#this commented section is how to create an event without going through gitHub
+#use it if you want to hard code the event i guess
+'''event = {
   #name, describe, and locate the event
   "summary": "ucl api",
   "location": "Malet Place",
@@ -39,21 +41,9 @@ event = {
     ],
   },
   #"visibility" : "public"
-}
-
+}''''
+event = gitHubAccess.getIssues()
 creds = None
-# The file token.pickle stores the user's access and refresh tokens, and is
-# created automatically when the authorization flow completes for the first
-# time.
-# if os.path.exists('token.pickle'):
-#     creds = pickle.loads(open('token.pickle', 'rb').read())
-    # with open('token.pickle', 'rb') as token:
-    #     creds = pickle.load(token, encoding='iso-8859-1')
-        # creds = json.loads(token.read)(
-        # u = pickle._Unpickler(token)
-        # u.encoding = 'iso-8859-1'
-        # p = u.load()
-        # print(p)
 with open('credentials.json', 'rt') as c:
     creds = json.load(c)
 # If there are no (valid) credentials available, let the user log in.
