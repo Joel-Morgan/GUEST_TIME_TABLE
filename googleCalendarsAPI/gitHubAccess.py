@@ -1,7 +1,9 @@
+from base64 import b64decode
+
 from github import Github
 import json
 
-g = Github("b4a6b378d632fe1319210f2540d16c5122f6c193")  # personal access token
+g = Github("472a461fe503c6eb64bd4a3fb9bb0b92c2a5d1e1")  # personal access token
 
 
 def makeJSON(title, body):
@@ -17,16 +19,10 @@ def makeJSON(title, body):
             "timeZone": "Europe/London",
         },
         "attendees": body[3],
-        "reminders": {
-            "useDefault": False,
-            "overrides": [
-                {"method": "email", "minutes": 24 * 60},
-                {"method": "popup", "minutes": 10},
-            ],
-        },
     }
     # x1 = json.dumps(x)
     # loaded = json.loads(x1)
+    print(x)
     return x
 
 
@@ -42,8 +38,9 @@ def getIssues():
     for issue in issueList:
         title = issue.title
         file = repo.get_contents(title + ".json")
-        print(file.content)
-        load = json.loads(file.content)
+        # print(file.content)
+        decoded = b64decode(file.content)
+        load = json.loads(decoded)
         body = [load["address"], load["start"], load["end"], load["lecturer"]]
         n = makeJSON(title, body)
     return n
