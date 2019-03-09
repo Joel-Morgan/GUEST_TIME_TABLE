@@ -1,7 +1,7 @@
 from github import Github
 import json
 
-g = Github("27a02591010db73f52dcff492ffce080202ef070")  # personal access token
+g = Github("b4a6b378d632fe1319210f2540d16c5122f6c193")  # personal access token
 
 
 def makeJSON(title, body):
@@ -25,8 +25,8 @@ def makeJSON(title, body):
             ],
         },
     }
-    #x1 = json.dumps(x)
-    #loaded = json.loads(x1)
+    # x1 = json.dumps(x)
+    # loaded = json.loads(x1)
     return x
 
 
@@ -38,8 +38,15 @@ def getIssues():
 
     # gets all the issues that are open on the repo
     issueList = repo.get_issues(state="open")
-
     # for each issue create a json
     for issue in issueList:
-        n = makeJSON(issue.title, issue.body.splitLines())
+        title = issue.title
+        file = repo.get_contents(title + ".json")
+        print(file.content)
+        load = json.loads(file.content)
+        body = [load["address"], load["start"], load["end"], load["lecturer"]]
+        n = makeJSON(title, body)
     return n
+
+
+getIssues()

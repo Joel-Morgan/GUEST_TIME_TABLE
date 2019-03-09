@@ -7,27 +7,6 @@ AND Make sure while you're setting up, you're doing it from the google account y
 then run quickstart.py in python3 in the cmd line (to test your account authorization):
 python3 quickstart.py
 
-IMPORTANT: DEPENDENCIES:
-make sure you have all the dependencies set up, SPECIFICALLY in python3!!
-they are:
-github
-pygithub - pip install PyGithub
-__future__
-datetime
-json
-pickle
-os.path
-googleapiclient.discovery
-google_auth_oauthlib.flow
-google.auth.transport.requests
-
-GITHUB ACCESS: IN CODE
-Set github access token- make sure you can access joel's repo and make and access token through github account
-This code gets the github repo and the gets each issue that has been raised in it
-Using the title in these issues it gets the files within the repo, parses the json and creates an event dictionary
-that is passed into the create event file
-
-
 CREATE EVENT: IN THE CODE
 Make sure you're set up properly!! there's a reason this file is called README
 To create an event, edit the createEvent file (like it's a json)
@@ -47,5 +26,4 @@ CREATE EVENT: THANK CHRIS
 most importantly hug chris for figuring out our encoding issues
 
 THAT'S IT don't fuck up :)
-Github Access does all the shit for you so you can't fuck up that end
-xx- Alex for the Google Calendars API end and Rikaz for the GitHub API end
+xx- Alex
