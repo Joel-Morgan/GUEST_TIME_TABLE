@@ -1,5 +1,4 @@
 public class Spaghetti {
-    String requestURL =
 }
 // the room booking in a format they can read ;-)
 // the way the user is gonna submit, is with an issue request ;-(
