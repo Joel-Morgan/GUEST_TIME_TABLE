@@ -3,19 +3,21 @@ from base64 import b64decode
 from github import Github
 import json
 
-g = Github("472a461fe503c6eb64bd4a3fb9bb0b92c2a5d1e1")  # personal access token
+g = Github("6a1ea1fb97adc7b0a4f9cd66d9118dec4cdb98f0")  # personal access token
 
 
 def makeJSON(title, body):
+  # 20191109T010000     2019-11-09T01:00:00
+
     x = {
         "summary": title,
         "location": body[0],
         "start": {
-            "dateTime": body[1],
+            "dateTime": formatTime(body[1]),
             "timeZone": "Europe/London",
         },
         "end": {
-            "dateTime": body[2],
+            "dateTime": formatTime(body[2]),
             "timeZone": "Europe/London",
         },
         "attendees": body[3],
@@ -24,6 +26,16 @@ def makeJSON(title, body):
     # loaded = json.loads(x1)
     print(x)
     return x
+
+
+def formatTime(dateTime):
+    year = dateTime[:4]
+    month = dateTime[4] + dateTime[5]
+    day = dateTime[6] + dateTime[7]
+    time = dateTime[9] + dateTime[10] + ":" + dateTime[11] + \
+        dateTime[12] + ":" + dateTime[13] + dateTime[14]
+    formatted = year + "-" + month + "-" + day + "T" + time
+    return formatted
 
 
 def getIssues():

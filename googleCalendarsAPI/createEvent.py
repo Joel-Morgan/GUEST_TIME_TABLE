@@ -9,8 +9,8 @@ from google.auth.transport.requests import Request
 import gitHubAccess
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-#this commented section is how to create an event without going through gitHub
-#use it if you want to hard code the event i guess
+# this commented section is how to create an event without going through gitHub
+# use it if you want to hard code the event i guess
 '''event = {
   #name, describe, and locate the event
   "summary": "ucl api",
@@ -41,7 +41,7 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
     ],
   },
   #"visibility" : "public"
-}''''
+}'''
 event = gitHubAccess.getIssues()
 creds = None
 with open('credentials.json', 'rt') as c:
