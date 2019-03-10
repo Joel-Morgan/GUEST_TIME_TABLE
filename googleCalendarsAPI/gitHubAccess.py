@@ -3,7 +3,7 @@ from base64 import b64decode
 from github import Github
 import json
 
-g = Github("6a1ea1fb97adc7b0a4f9cd66d9118dec4cdb98f0")  # personal access token
+g = Github("115803c9cc7e7697ba798fb5f618d353a09e99aa")  # personal access token
 
 
 def makeJSON(title, body):

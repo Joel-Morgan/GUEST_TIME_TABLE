@@ -2,7 +2,7 @@ from github import Github
 import requests
 import json
 
-g = Github("6a1ea1fb97adc7b0a4f9cd66d9118dec4cdb98f0")
+g = Github("115803c9cc7e7697ba798fb5f618d353a09e99aa")
 
 repo = g.get_repo("Pounder206/GUEST_TIME_TABLE")
 open_issues = repo.get_issues(state='open')
